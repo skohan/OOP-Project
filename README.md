@@ -1,2 +1,2 @@
 # OOP-Project
-Third sem project
+Third Semester Project, VIIT
