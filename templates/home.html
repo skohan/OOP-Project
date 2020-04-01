@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href={{url_for( 'static', filename='./css/home.css' )}}>
+</head>
+
+<body>
+    <header class="header-banner">
+        <div class="container-width">
+            <div class="clearfix"></div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <div class="lead-title">Welcome {{ user.name }}</div>
+            </div>
+            <div class="cell" id="ii3kog">
+                <blockquote class="quote"><span draggable="true" id="is3qfx-2">
+        Banking Is the </span>
+                    <div draggable="true" id="iqtqsn-2"><span draggable="true" id="ibd8wf-2">Backbone of </span></div>
+                    <div draggable="true" id="i7dyy7-2"><span draggable="true" id="i686ab-2">Economy </span></div>
+                </blockquote>
+            </div>
+        </div>
+    </header>
+    <section class="bdg-sect">
+        <div data-tabs="1" id="ichrlk">
+            <nav data-tab-container="1" class="tab-container"><a href="#tab1" data-tab="1" class="tab">Profile</a><a href="#tab2" data-tab="1" class="tab">Transaction</a></nav>
+            <div id="tab1" data-tab-content="1" class="tab-content">
+                <div class="row" id="imkqd8">
+                    <div class="cell" id="iwc884" align="center">
+                        <table>
+                            <tr>
+                                <td> Name </td>
+                                <td>
+                                    <div id="i9i7b6">{{ user.name }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Email </td>
+                                <td>
+                                    <div id="i9i7b6">{{ user.email }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Adhar Card </td>
+                                <td>
+                                    <div id="i9i7b6">{{ user.adhar_card }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Pan Card </td>
+                                <td>
+                                    <div id="i9i7b6">{{ user.pan_card }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Phone </td>
+                                <td>
+                                    <div id="i9i7b6">{{ user.phone }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Balance </td>
+                                <td>
+                                    <div id="i9i7b6">{{ user.balance }}</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="tab2" data-tab-content="1" class="tab-content">
+                <form method="POST" action="/transact?sender={{user.email}}" class="form">
+                    <div class="form-group"><label class="label">TO</label><input placeholder="Who to send  (Valid Email ID of Reciever)" name="reciever" type="email" required class="input" /></div>
+                    <div class="form-group"><label class="label">AMOUNT</label><input type="number" name="amount" placeholder="Money" required class="input" /></div>
+                    <div class="form-group"><label class="label">Message</label><textarea name="message" placeholder="anything you want to say?" class="textarea"></textarea></div>
+                    <div class="form-group"><button type="submit" class="button">Send</button></div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-under">
+        <div class="container-width">
+            <div class="footer-container">
+                <div class="foot-lists">
+                    <div class="foot-list">
+                        <div class="foot-list-title">About us</div>
+                        <div class="foot-list-item">Contact</div>
+                        <div class="foot-list-item">Events</div>
+                        <div class="foot-list-item">Company</div>
+                        <div class="foot-list-item">Jobs</div>
+                        <div class="foot-list-item">Blog</div>
+                    </div>
+                    <div class="foot-list">
+                        <div class="foot-list-title">Services</div>
+                        <div class="foot-list-item">Education</div>
+                        <div class="foot-list-item">Partner</div>
+                        <div class="foot-list-item">Community</div>
+                        <div class="foot-list-item">Forum</div>
+                        <div class="foot-list-item">Download</div>
+                        <div class="foot-list-item">Upgrade</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-sub">
+                    <div class="foot-form-cont"></div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container-width">
+                <div class="made-with">
+                    made with GrapesJS
+                </div>
+                <div class="foot-social-btns">facebook twitter linkedin mail</div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        var items = document.querySelectorAll('#ichrlk');
+        for (var i = 0, len = items.length; i < len; i++) {
+            (function() {
+                var t, e = this,
+                    a = "[data-tab]",
+                    n = document.body,
+                    r = n.matchesSelector || n.webkitMatchesSelector || n.mozMatchesSelector || n.msMatchesSelector,
+                    o = function() {
+                        var a = e.querySelectorAll("[data-tab-content]") || [];
+                        for (t = 0; t < a.length; t++) a[t].style.display = "none"
+                    },
+                    i = function(n) {
+                        var r = e.querySelectorAll(a) || [];
+                        for (t = 0; t < r.length; t++) {
+                            var i = r[t],
+                                s = i.className.replace("tab-active", "").trim();
+                            i.className = s
+                        }
+                        o(), n.className += " tab-active";
+                        var l = n.getAttribute("href"),
+                            c = e.querySelector(l);
+                        c && (c.style.display = "")
+                    },
+                    s = e.querySelector(".tab-active" + a);
+                s = s || e.querySelector(a), s && i(s), e.addEventListener("click", function(t) {
+                    var e = t.target;
+                    r.call(e, a) && i(e)
+                })
+            }.bind(items[i]))();
+        }
+    </script>
+</body>
+<html>

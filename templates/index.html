@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href={{url_for( 'static', filename='./css/style.css' )}}>
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div data-gjs="navbar" class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <div id="isap6u">The Pune Bank</div>
+            </a>
+            <div id="ilo4yi" class="navbar-burger">
+                <div class="navbar-burger-line"></div>
+                <div class="navbar-burger-line"></div>
+                <div class="navbar-burger-line"></div>
+            </div>
+            <div data-gjs="navbar-items" class="navbar-items-c">
+                <nav data-gjs="navbar-menu" class="navbar-menu"><a href="/signup" id="ikcs43" class="navbar-menu-link">Sign up<br
+              id="i0dt2e-2-2" draggable="true" /></a><a href="#" class="navbar-menu-link">Home</a><a href="/login" class="navbar-menu-link">Log in<br /></a></nav>
+            </div>
+        </div>
+    </div>
+    <div id="ic28gy" class="row">
+        <div id="i4rcxe" class="cell">
+            <section class="bdg-sect">
+                <h1 class="heading">The Future of the Banks</h1>
+                <p class="paragraph"><b>This project is made by VIIT Students Sohan Kale, Piyush Bali, Rohan Belwal, Anish Jadhav.</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua jzgjgj jgm  ejgierjg
+                    g jgijef  erijemfjierkj jirj sfjij fm kf9i jso;finjrnjv  irj jj' ejrijdmjvidmgvrijrkm rjfk fokefkmrodmfkmkedfmmdfokpk fvlklkm jjfcwijef j ifjsuhe ferijnvi dnsozfoe osejf jzoj oiejf jjmer jtogj ergj jbndlger krthjth org;sepeo  hrgiojrg
+                    ortjg eostj[etirejosrgjkrtgosglkmsrgjfkgre;grdvnxer;rogjs ;erg drgjjsejnrg;zgjzfrigtbgnbgn rgmdkdfirjggdfjvig ekr frfj r  f jrvjnvierng</p>
+            </section>
+            <div class="row" id="iraog1">
+                <div id="i7ydcp" class="cell"><img id="ix9mt7" src="{{url_for('static', filename='./bank.jpg')}}" /></div>
+                <div class="cell" id="iv2w71">
+                    <section class="bdg-sect">
+                        <h1 class="heading">A Building-less Bank!</h1>
+                        <p class="paragraph"><b>The idea of having no building(saving infrastructure cost), no big long queues for any banking procedure.</b> ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Although
+                            moreover mistaken kindness me feelings do be marianne. Son over own nay with tell they cold upon are. Cordial village and settled she ability law herself. Finished why bringing but sir bachelor unpacked any thoughts. Unpleasing
+                            unsatiable particular inquietude did nor sir. Get his declared appetite distance his together now families. Friends am himself at on norland it viewing. Suspected elsewhere you belonging continued commanded she. </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var items = document.querySelectorAll('#ilo4yi');
+        for (var i = 0, len = items.length; i < len; i++) {
+            (function() {
+                var e, t = 0,
+                    n = function() {
+                        var e, t = document.createElement("void"),
+                            n = {
+                                transition: "transitionend",
+                                OTransition: "oTransitionEnd",
+                                MozTransition: "transitionend",
+                                WebkitTransition: "webkitTransitionEnd"
+                            };
+                        for (e in n)
+                            if (void 0 !== t.style[e]) return n[e]
+                    }(),
+                    r = function(e) {
+                        var t = window.getComputedStyle(e),
+                            n = t.display,
+                            r = (t.position, t.visibility, t.height, parseInt(t["max-height"]));
+                        if ("none" !== n && "0" !== r) return e.offsetHeight;
+                        e.style.height = "auto", e.style.display = "block", e.style.position = "absolute", e.style.visibility = "hidden";
+                        var i = e.offsetHeight;
+                        return e.style.height = "", e.style.display = "", e.style.position = "", e.style.visibility = "", i
+                    },
+                    i = function(e) {
+                        t = 1;
+                        var n = r(e),
+                            i = e.style;
+                        i.display = "block", i.transition = "max-height 0.25s ease-in-out", i.overflowY = "hidden", "" == i["max-height"] && (i["max-height"] = 0), 0 == parseInt(i["max-height"]) ? (i["max-height"] = "0", setTimeout(function() {
+                            i["max-height"] = n + "px"
+                        }, 10)) : i["max-height"] = "0"
+                    },
+                    a = function(r) {
+                        if (r.preventDefault(), !t) {
+                            var a = this.closest("[data-gjs=navbar]"),
+                                o = a.querySelector("[data-gjs=navbar-items]");
+                            i(o), e || (o.addEventListener(n, function() {
+                                t = 0;
+                                var e = o.style;
+                                0 == parseInt(e["max-height"]) && (e.display = "", e["max-height"] = "")
+                            }), e = 1)
+                        }
+                    };
+                "gjs-collapse" in this || this.addEventListener("click", a), this["gjs-collapse"] = 1
+            }.bind(items[i]))();
+        }
+    </script>
+</body>
+<html>
